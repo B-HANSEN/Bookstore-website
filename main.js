@@ -28,13 +28,13 @@ function mapData(anyArray) {
 
         var image = document.createElement('img'); // create an <img> element
         image.src = anyArray[i].portada; // from JSON array
-        flipCardFront.appendChild(image); // append img to Front ID
+        flipCardFront.append(image); // append img to Front ID
 
         // create Inner ID (intermediate) and append Front to Inner ID
         var flipCardInner = document.createElement('div'); // create Inner ID (intermediate)
         flipCardInner.setAttribute('class', 'flip-card-inner'); // set Attributes
 
-        flipCardInner.appendChild(flipCardFront); // append Front to Inner ID
+        flipCardInner.append(flipCardFront); // append Front to Inner ID
 
         /*************************************Card back*********************************** */
         // create title
@@ -45,13 +45,13 @@ function mapData(anyArray) {
         var title = document.createElement('h5'); // create a <title> p-element
         title.src = anyArray[i].titulo; // from JSON array
         title.innerHTML = anyArray[i].titulo; // append title to Back ID
-        flipCardBack.appendChild(title);
+        flipCardBack.append(title);
 
         // add description
         var description = document.createElement('p'); // create a <description> p-element
         description.src = anyArray[i].descripcion; // from JSON array
         description.innerHTML = anyArray[i].descripcion; // append description to Back ID
-        flipCardBack.appendChild(description);
+        flipCardBack.append(description);
 
         // add more info button
         var button = document.createElement('button'); // create a button element
@@ -59,19 +59,19 @@ function mapData(anyArray) {
         button.setAttribute("href", anyArray[i].detalle);
         button.setAttribute("data-fancybox", "gallery")
         button.innerHTML = "more info"; // append description to Back ID
-        flipCardBack.appendChild(button);
+        flipCardBack.append(button);
 
         // append Back to Inner ID
-        flipCardInner.appendChild(flipCardBack);
+        flipCardInner.append(flipCardBack);
 
         /****************************Card Inner to Flip-card************************* */
         // append Inner to Intermediate
         var flipCardIntermediate = document.createElement('div'); // create Intermediate ID
         flipCardIntermediate.setAttribute('class', 'flip-card'); // assign to class
-        flipCardIntermediate.appendChild(flipCardInner);
+        flipCardIntermediate.append(flipCardInner);
 
         // append Intermediate to parent
-        flipCard.appendChild(flipCardIntermediate);
+        flipCard.append(flipCardIntermediate);
     }
 }
 
