@@ -6,8 +6,8 @@ fetch('https://api.myjson.com/bins/1h3vb3')
     .then(function (json) {
         books = json.books;
         console.log(books);
-        mapData(books)
-        searchFn();
+        mapData(books);
+        // myFunction(books);
     })
     .catch(error => console.error(error))
 
@@ -16,7 +16,6 @@ var flipCard = document.getElementById("container") // access parent ID in html 
 
 // map json data in html
 function mapData(anyArray) {
-
     // Loop through data in the JSON array.
     for (var i = 0; i < anyArray.length; i++) {
 
@@ -42,7 +41,7 @@ function mapData(anyArray) {
         flipCardBack.setAttribute('class', 'flip-card-back'); // assign to class
 
         // add title
-        var title = document.createElement('h5'); // create a <title> p-element
+        var title = document.createElement('div'); // create h5-element
         title.src = anyArray[i].titulo; // from JSON array
         title.innerHTML = anyArray[i].titulo; // append title to Back ID
         flipCardBack.appendChild(title);
@@ -67,7 +66,7 @@ function mapData(anyArray) {
         /****************************Card Inner to Flip-card************************* */
         // append Inner to Intermediate
         var flipCardIntermediate = document.createElement('div'); // create Intermediate ID
-        flipCardIntermediate.setAttribute('class', 'flip-card'); // assign to class
+        flipCardIntermediate.setAttribute('class', 'flip-card-inner'); // assign to class
         flipCardIntermediate.appendChild(flipCardInner);
 
         // append Intermediate to parent
@@ -77,22 +76,20 @@ function mapData(anyArray) {
 
 
 /* *************************** SEARCH ENGINE ************************* */
-function searchFn() {
-    var input, filter, parentCard, titulo, i;
+// function myFunction() {
+//     var input, filter, parentCard, titulo, i;
 
-    input = document.getElementById("searchfield"); // declare variable for user input text
-    filter = input.value.toLowerCase(); // set both input and h5 to lowercase to enable comparability
-    console.log(filter);
+//     input = document.getElementById("searchfield");
+//     filter = input.value.toLowerCase();
 
-    parentCard = document.getElementsByClassName("flip-card"); // define element which should be searched and filtered out
-    console.log(parentCard);
+//     parentCard = document.getElementsByClassName("flip-cart");
 
-    for (var i = 0; i < parentCard.length; i++) { // run loop over parent array, i.e. 25 divs containing images
-        titulo = parentCard[i].getElementsByTagName("h5")[0]; // access h5 tag and store in variable
-        if (titulo.innerHTML.toLowerCase().indexOf(filter) > -1) { // set html text to lowercase to enable comparability
-            parentCard[i].style.display = ""; // show
-        } else {
-            parentCard[i].style.display = "none"; // hide
-        }
-    }
-}
+//     for (var i = 0; i < parentCard.length; i++) {
+//         titulo = parentCard.getElementsByTagName("h5")[0];
+//         if (titulo.innerHTML.toLowerCase().indexOf(filter) > -1) {
+//             parentCard[i].style.display = "";
+//         } else {
+//             parentCard[i].style.display = "none";
+//         }
+//     }
+// }
