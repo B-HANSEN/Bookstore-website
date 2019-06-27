@@ -1,15 +1,52 @@
-// fetch json data from remote servers
-fetch('https://api.myjson.com/bins/1h3vb3')
-    .then(function (response) {
-        return response.json();
-    })
-    .then(function (json) {
-        books = json.books;
-        console.log(books);
-        mapData(books)
-        searchFn();
-    })
-    .catch(error => console.error(error))
+Vue.config.devtools = true;
+
+// fetch data from remote, convert to json, store data in variable books
+Vue.component('books-comp', {
+    props: ['books'],
+    template: `
+    <div>
+    <div v-for="book in books">
+ 
+ 
+    </div>
+    </div>
+    `
+})
+
+new Vue({
+    el: '#app',
+    data: {
+        json: null // initialise empty array
+    },
+    created: function () {
+        fetch("https://api.myjson.com/bins/1h3vb3")
+            .then(r => r.json())
+            .then(json => {
+                console.log(json.books)
+                this.json = json.books;
+            })
+    }
+});
+
+
+
+
+
+
+
+
+// JS-version: fetch
+// fetch('https://api.myjson.com/bins/1h3vb3')
+//     .then(function (response) {
+//         return response.json();
+//     })
+//     .then(function (json) {
+//         books = json.books;
+//         console.log(books);
+//         mapData(books)
+//         searchFn();
+//     })
+//     .catch(error => console.error(error))
 
 
 var flipCard = document.getElementById("container") // access parent ID in html (main container)
@@ -98,7 +135,8 @@ function searchFn() {
 }
 
 
-// more/less button form TGIF-Project
+
+// more/less button from TGIF-Project
 // var app = new Vue({
 //     el: '#app',
 //     data: {
@@ -114,3 +152,26 @@ function searchFn() {
 //         }
 //     }
 // });
+
+// <
+// script >
+//     import Vue from 'vue'
+// export default Vue.component('divComponent', {
+//         render(h) {
+//             return h("div", {
+//                 style: {
+//                     width: "100px",
+//                     height: "100px",
+//                     background: "red",
+//                     color: "white",
+//                     display: true
+//                 },
+//                 attrs: {
+//                     id: "container"
+//                 }
+//             }, ["HELLO"])
+//         }
+//     })
+
+//     <
+//     /script>
