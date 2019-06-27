@@ -96,3 +96,21 @@ function searchFn() {
         }
     }
 }
+
+
+// more/less button form TGIF-Project
+// var app = new Vue({
+//     el: '#app',
+//     data: {
+//         button: {
+//             text: 'Show More'
+//         },
+//         showPara: true
+//     },
+//     methods: {
+//         hideShow() {
+//             app.showPara = !app.showPara;
+//             app.button.text = app.showPara ? 'Show more' : 'Show less';
+//         }
+//     }
+// });
