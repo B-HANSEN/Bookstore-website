@@ -29,13 +29,15 @@
 
 <body>
     <div id="app">
+
+
         <header id="header" class="fixed-top d-flex justify-content-between">
             <img class="logo" src="./images/screenshot_new.png" alt="logo" />
-            <div class="searchDiv">
-            </div>
+            <div class="searchDiv" id="field"></div>
         </header>
 
         <books-comp v-bind:books="json"></books-comp>
+
     </div>
 
 

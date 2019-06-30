@@ -5,10 +5,11 @@ Vue.component('books-comp', {
     template: `
 <div>
     <input
-    type="text"
-    class="searchfield"
-    v-model="search" 
-    placeholder="Search..." />
+        type="text"
+        v-bind:id="field"
+        class="searchfield"
+        v-model="search"
+        placeholder="Search..." />
 
     <div id="container" class="d-flex flex-wrap justify-content-around">
         <div class="flip-card" v-for="book in filteredBooks"> 
@@ -56,7 +57,7 @@ var app = new Vue({
         fetch("https://api.myjson.com/bins/1h3vb3")
             .then(r => r.json())
             .then(json => {
-                console.log(json.books)
+                console.log(json.books) // json is an object & json.books is an array
                 this.json = json.books;
             })
     }
